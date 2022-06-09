@@ -26,7 +26,18 @@ const step1 = (req, res) => {
           error: 'sortBy parameter is not valid',
         });
       }
+//execution when user selects more than 1 tag
+      if (tags.indexOf(',') !== - 1) {
+        const tagArray = tags.split(',');
+        const getPaths = tagArray.map((tag, i) => {
+          return axios.get(`http://hatchways.io/api/assessment/blog/posts?tag=${tag}&sortBy=${sortBy}&direction=${direction}`)
+        });
+        //Axios is promise-based, which gives you the ability to take advantage of JavaScript’s async and await for more readable asynchronous code.
+        axios.all([
+          ...getPaths
+        ])
 
-
-
-module.exports = router;
+module.exports = {router, 
+    step1
+    }
+}};
