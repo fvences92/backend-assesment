@@ -17,7 +17,7 @@ Javascript (Node.js), Nodemon.
 
 # Getting Started 
 
-Click [here] (https://github.com/fvences92/backend-assesment/tree/master) to access master branch and view the coded solution. 
+Click [here](https://github.com/fvences92/backend-assesment/tree/master) to access master branch and view the coded solution. 
 
 1. Open project and once opened, in the terminal run "npm i" or npm "install"
 2. run npm start to start the server, PORT: 1992 or localhost:1992 
