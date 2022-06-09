@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 1992;
 //index route (test only)
 app.get('/', (req, res) => {
     res.json({
-        response: "hello world"
+        response: "Future Dev at Walnut"
     });
 });
 
