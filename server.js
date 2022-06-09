@@ -3,9 +3,11 @@ const path = require ('express');
 
 const app = express();
 const bodyParser = require('body-parser');
-const posts = require('./routes/posts.js');
+const posts = require('./server/controller/controller.js');
 const morgan = require('morgan');
 
+
+const PORT = process.env.PORT || 1992;
 
 
 app.use(bodyParser.json());
@@ -13,10 +15,17 @@ app.use(morgan('dev'));
 
 app.use('/api', posts);
 
+//index route (test only)
 app.get('/', (req, res) => {
     res.json({
         response: "hello world"
     });
 });
 
-app.listen(3000, () => console.log("listening on port 3000"))
+//step 1
+app.get('/ping', step1)
+
+
+app.listen(PORT, () => {
+    console.log(`listening on port ${PORT}`)
+})
