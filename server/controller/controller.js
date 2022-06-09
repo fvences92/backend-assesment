@@ -11,10 +11,22 @@ const step1 = (req, res) => {
   const getTags = (req, res) => {
     const { tags, sortBy, direction } = req.params;
     const sortedValues = ['id', 'author', 'authorId', 'likes', 'popularity', 'reads', 'tags', undefined];
-    const trueDirections = ['asc', 'desc', undefined];
+    const trueDirection = ['asc', 'desc', undefined];
+
+
+// response status error if parameter is not valid
+
+    if (sortedValues.indexOf(sortBy) === - 1) {
+        res.status(400).send({
+          error: 'sortBy parameter is not valid',
+        });
+      }
+      if (trueDirection.indexOf(direction) === -1) {
+        res.status(400).send({
+          error: 'sortBy parameter is not valid',
+        });
+      }
 
 
 
-
-
-module.exports = router; 
+module.exports = router;
