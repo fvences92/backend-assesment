@@ -1,16 +1,21 @@
-const express = require('express')
-import bodyParser from 'body-parser'
-
-import posts from './routes/posts.js';
+const express = require('express');
+const path = require ('express');
 
 const app = express();
+const bodyParser = require('body-parser');
+const posts = require('./routes/posts.js');
+const morgan = require('morgan');
 
-app.use(bodyParser, json());
+
+
+app.use(bodyParser.json());
+app.use(morgan('dev'));
 
 app.use('/api', posts);
 
 app.get('/', (req, res) => {
-    res.json ({response: "hello world"
+    res.json({
+        response: "hello world"
     });
 });
 

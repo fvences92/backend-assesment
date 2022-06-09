@@ -2,7 +2,11 @@ import express from 'express';
 
 const router = express.Router();
 
-router.get('/', (req, res) => {
-    res.json("https://api.hatchways.io/assessment/blog/posts")
+const apiKey = 'https://api.hatchways.io/assessment/blog/posts'
+
+router.get('/ping', (req, res) => {
+    res.json('hello world')
     
 })
+
+export default router; 
